@@ -45,10 +45,16 @@ document.getElementById('calculate-total').addEventListener('click',function(){
         balanceInput.innerText = '00';
 
     }
-    else{
+    else if (totalExpenses > income){
+        alert('insufficiant balance')
+
+    }
+    else {
         totalExpensesFeild.innerText = totalExpenses;
         balanceInput.innerText = income - totalExpenses;
     }
+    
+
     
 })
 
@@ -62,12 +68,12 @@ document.getElementById('calculate-saving').addEventListener('click', function()
     const savingAmount = document.getElementById('saving-amount');
     const balanceInput = document.getElementById('input-balance');
     const remainingBalance = document.getElementById('remaining-balance');
-    
+    //   error handaling
     if ( isNaN(savingsInput) == false){
 
-   
     savingAmount.innerText = income * savingsInput / 100;
     remainingBalance.innerText = balanceInput.innerText - savingAmount.innerText;
+
     }
     else{
         savingAmount.innerText = '00'

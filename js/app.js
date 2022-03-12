@@ -2,7 +2,7 @@ function getInput(id){
     const inputFeild = document.getElementById(id);
     const InputValue = inputFeild.value ;
     const InputParse = parseFloat(InputValue);
-    // clear input feild 
+    //   error handaling
     if (inputFeild.value == '') {
 
         document.getElementById(id+'-fillup').style.display = 'block';
@@ -19,6 +19,7 @@ function getInput(id){
     return InputParse;
 }
 
+// calculate total button 
 
 document.getElementById('calculate-total').addEventListener('click',function(){
 
@@ -37,7 +38,8 @@ document.getElementById('calculate-total').addEventListener('click',function(){
     const totalExpenses = food + rent + cloth;
 
     const balanceInput = document.getElementById('input-balance');
-   
+
+   //   error handaling
     if (isNaN(totalExpenses) == true){
         totalExpensesFeild.innerText = '00';
         balanceInput.innerText = '00';
@@ -50,22 +52,22 @@ document.getElementById('calculate-total').addEventListener('click',function(){
     
 })
 
+// savings button 
+
 document.getElementById('calculate-saving').addEventListener('click', function(){
 
     const savingsInput = getInput('save-input');
-
     const income = getInput('input-income');
 
     const savingAmount = document.getElementById('saving-amount');
     const balanceInput = document.getElementById('input-balance');
-    const balanceInner = balanceInput.innerText
     const remainingBalance = document.getElementById('remaining-balance');
     
     if ( isNaN(savingsInput) == false){
 
    
     savingAmount.innerText = income * savingsInput / 100;
-    remainingBalance.innerText = balanceInner - savingAmount.innerText;
+    remainingBalance.innerText = balanceInput.innerText - savingAmount.innerText;
     }
     else{
         savingAmount.innerText = '00'
